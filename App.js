@@ -10,8 +10,9 @@ import {
 } from "react-native";
 
 
-//import MainScreen from './MainScreen';
-//import DetailScreen from './DetailScreen';
+//import MainPage from './components/MainPage';
+//import DetailPage from './components/DetailPage';
+//import CreatAccountPage from './components/CreatAccountPage';
 
  
 export default function App() {
@@ -48,7 +49,6 @@ export default function App() {
       <TouchableOpacity>
         <Text style={styles.forgot_button}>Creat Account</Text>
       </TouchableOpacity>
- 
       <TouchableOpacity style={styles.loginBtn}>
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
  
   },
   inputView: {
-    backgroundColor: "#C3FC6d",
+    backgroundColor: "#fff",
     borderRadius: 30,
     width: "70%",
     height: 45,
@@ -89,12 +89,14 @@ const styles = StyleSheet.create({
   },
  
   loginBtn: {
+    color: "#fff",
     width: "80%",
     borderRadius: 25,
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 40,
+    marginTop: 30,
+    marginBottom: 60,
     backgroundColor: "#577030",
   },
 });
