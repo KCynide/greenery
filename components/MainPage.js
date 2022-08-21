@@ -1,44 +1,27 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Text, Button, View} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import {
+  StyleSheet,
+  Text,
+  Image,
+  TextInput,
+  Button,
+  TouchableOpacity,
+  View
+} from "react-native";
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon5 from 'react-native-vector-icons/FontAwesome5';
 
 const Tab = createBottomTabNavigator();
 
-function HomePage({navigation}) {
+import ShopPage from './ShopPage';
+import MenuPage from './MenuPage';
+import AnalysisPage from './AnalysisPage';
+
+function HomePage() {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>Home</Text>
-      <Button
-        title="Detail 1 열기"
-        onPress={() => {
-          navigation.push('Detail', {id: 1});
-        }}
-      />
-    </View>
-  );
-}
-
-function AnalysisPage() {
-  return (
-    <View>
-      <Text>Analysis</Text>
-    </View>
-  );
-}
-
-function ShopPage() {
-  return (
-    <View>
-      <Text>Shop</Text>
-    </View>
-  );
-}
-
-function MenuPage() {
-  return (
-    <View>
-      <Text>Menu</Text>
     </View>
   );
 }
@@ -46,11 +29,23 @@ function MenuPage() {
 function MainPage() {
   return (
     <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        tabBarStyle: {
+          backgroundColor: '#577030',
+          borderTopColor: 'black',
+          tabBarActiveTintColor: 'white',
+        },
+        tabBarOptions: {
+          inactiveBackgroundColor: '#EFEFEF',
+          activeTintColor: '#ffffff',
+        },
+      }}
       initialRouteName="Home"
       PageOptions={{
-        tabBarActiveTintColor: '#fb8c00',
         tabBarShowLabel: false,
-      }}>
+      }}
+      >
       <Tab.Screen
         name="Home"
         component={HomePage}
@@ -67,7 +62,7 @@ function MainPage() {
         options={{
           title: '전력분석',
           tabBarIcon: ({color, size}) => (
-            <Icon name="search" color={color} size={size} />
+            <Icon5 name="bolt" color={color} size={size} />
           ),
         }}
       />
@@ -75,9 +70,9 @@ function MainPage() {
         name="Shop"
         component={ShopPage}
         options={{
-          title: '에코샾',
+          title: '에코샵',
           tabBarIcon: ({color, size}) => (
-            <Icon name="notifications" color={color} size={size} />
+            <Icon name="tags" color={color} size={size} />
           ),
         }}
       />
@@ -87,12 +82,21 @@ function MainPage() {
         options={{
           title: '메뉴',
           tabBarIcon: ({color, size}) => (
-            <Icon name="message" color={color} size={size} />
+            <Icon5 name="ellipsis-v" color={color} size={size} />
           ),
         }}
       />
     </Tab.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#88b04b',
+  },
+});
+
+
 
 export default MainPage;
