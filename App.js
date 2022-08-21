@@ -1,102 +1,35 @@
 import React, {useState} from 'react';
-import {View, StatusBar} from 'react-native';
-import {
-  StyleSheet,
-  Text,
-  Image,
-  TextInput,
-  Button,
-  TouchableOpacity,
-} from "react-native";
+import "react-native-gesture-handler";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 
-//import MainPage from './components/MainPage';
-//import DetailPage from './components/DetailPage';
-//import CreatAccountPage from './components/CreatAccountPage';
+import MainPage from './components/MainPage';
+import Login from './components/Login';
+import CreatAccount from './components/CreatAccount';
 
- 
-export default function App() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
- 
+import ShopPage from './components/ShopPage';
+import MenuPage from './components/MenuPage';
+import AnalysisPage from './components/AnalysisPage';
+
+
+const Stack = createStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={require("./assets/logo-greenery.png")} />
- 
-      <StatusBar style="auto" />
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Email."
-          placeholderTextColor="#003f5c"
-          onChangeText={(email) => setEmail(email)}
+    <NavigationContainer>
+      <Stack.Navigator
+      screenOptions={{ headerShown: false }}
+      >
+        <Stack.Screen
+          name="Login"
+          component={Login}
         />
-      </View>
- 
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Password."
-          placeholderTextColor="#003f5c"
-          secureTextEntry={true}
-          onChangeText={(password) => setPassword(password)}
-        />
-      </View>
- 
-      <TouchableOpacity>
-        <Text style={styles.forgot_button}>Forgot Password?</Text>
-      </TouchableOpacity>
-      <TouchableOpacity>
-        <Text style={styles.forgot_button}>Creat Account</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.loginBtn}>
-        <Text style={styles.loginText}>LOGIN</Text>
-      </TouchableOpacity>
-    </View>
+        <Stack.Screen name="MainPage" component={MainPage} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
- 
- 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#88b04b',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  image :{
-    marginBottom: 40
- 
-  },
-  inputView: {
-    backgroundColor: "#fff",
-    borderRadius: 30,
-    width: "70%",
-    height: 45,
-    marginBottom: 20,
-    alignItems: "flex-start",
-  },
- 
-  TextInput: {
-    height: 50,
-    flex: 1,
-    padding: 10
-  },
- 
-  forgot_button: {
-    height: 30,
-    marginBottom: 10,
-  },
- 
-  loginBtn: {
-    color: "#fff",
-    width: "80%",
-    borderRadius: 25,
-    height: 50,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 30,
-    marginBottom: 60,
-    backgroundColor: "#577030",
-  },
-});
+
+export default App;

@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-function CreatAccount() {
+function ShopPage() {
   return (
     <View>
       <Text></Text>
@@ -9,4 +9,4 @@ function CreatAccount() {
   );
 }
 
-export default CreatAccount;
+export default ShopPage;
