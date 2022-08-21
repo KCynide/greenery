@@ -17,6 +17,7 @@ const Tab = createBottomTabNavigator();
 import ShopPage from './ShopPage';
 import MenuPage from './MenuPage';
 import AnalysisPage from './AnalysisPage';
+import NewsPage from './NewsPage';
 
 function HomePage() {
   return (
@@ -29,21 +30,19 @@ function HomePage() {
 function MainPage() {
   return (
     <Tab.Navigator
+      activeColor="red"
+      inactiveColor="white"
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
+          activeTintColor: '#fff',
+          inactiveTintColor: 'lightgray',
+          inactiveBackgroundColor: '#b55031',
           backgroundColor: '#577030',
-          borderTopColor: 'black',
-          tabBarActiveTintColor: 'white',
+          color: 'white',
         },
-        tabBarOptions: {
-          inactiveBackgroundColor: '#EFEFEF',
-          activeTintColor: '#ffffff',
-        },
-      }}
-      initialRouteName="Home"
-      PageOptions={{
-        tabBarShowLabel: false,
+        tabBarActiveTintColor: '#ffffff',
+        tabBarInactiveTintColor: '#93B5C6',
       }}
       >
       <Tab.Screen
@@ -73,6 +72,16 @@ function MainPage() {
           title: '에코샵',
           tabBarIcon: ({color, size}) => (
             <Icon name="tags" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="News"
+        component={NewsPage}
+        options={{
+          title: '뉴스',
+          tabBarIcon: ({color, size}) => (
+            <Icon name="newspaper-o" color={color} size={size} />
           ),
         }}
       />
