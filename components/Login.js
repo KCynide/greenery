@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import {useState} from "react";
 
+
 function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -46,7 +47,7 @@ function Login({ navigation }) {
   );
 };
 
-//styles//
+/**styles*/
 
 const styles = StyleSheet.create({
   container: {

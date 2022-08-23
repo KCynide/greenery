@@ -9,6 +9,7 @@ import {
   View
 } from "react-native";
 
+
 function AnalysisPage() {
   return (
     <View style={styles.container}>
