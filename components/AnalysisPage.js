@@ -13,7 +13,7 @@ import {
 function AnalysisPage() {
   return (
     <View style={styles.container}>
-      <Text></Text>
+      <Text>Analysis</Text>
     </View>
   );
 }

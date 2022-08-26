@@ -12,7 +12,7 @@ import {
 function MenuPage() {
   return (
     <View style={styles.container}>
-      <Text></Text>
+      <Text>Menu</Text>
     </View>
   );
 }

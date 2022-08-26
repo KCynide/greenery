@@ -12,7 +12,7 @@ import {
 function ShopPage() {
   return (
     <View style={styles.container}>
-      <Text></Text>
+      <Text>Shop</Text>
     </View>
   );
 }

@@ -9,8 +9,11 @@ import {
   View,
   Dimensions,
   ScrollView,
+  StatusBar,
 } from "react-native";
 import * as Location from "expo-location";
+
+import SettingPage from './SettingPage';
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
@@ -53,21 +56,19 @@ function HomePage() {
     );
 }
 
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#88b04b',
-      alignItems: 'center',
-      justifyContent: 'center',
     },
     tobtabs: {
       flex: 1,
-      
+      height: 50,
+
     },
     city: {
         flex: 1,
-        justifyContent: "flex-end",
-        alignItems: "flex-start",
     },
     cityName: {
         fontSize: 20,

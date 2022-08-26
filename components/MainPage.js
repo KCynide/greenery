@@ -21,31 +21,31 @@ import NewsPage from './NewsPage';
 import HomePage from './HomePage';
 
 
+
 export default function MainPage() {
   return (
 /**네비게이터*/
       <Tab.Navigator
-        activeColor="red"
         inactiveColor="white"
+        shifting={true}
+        labeled={true}
         screenOptions={{
           headerShown: false,
           tabBarStyle: {
-            activeTintColor: '#fff',
-            inactiveTintColor: 'lightgray',
-            inactiveBackgroundColor: '#b55031',
-            backgroundColor: '#577030',
+            backgroundColor: '#88b04b',
             color: 'white',
-            height: 70,
+            height: 65,
           },
-          tabBarActiveTintColor: '#ffffff',
-          tabBarInactiveTintColor: '#93B5C6',
+          tabBarActiveTintColor: '#C7C452',
+          tabBarInactiveTintColor: '#363738',
         }}
       >
         <Tab.Screen
+          style={styles.tabcontainer}
           name="Home"
           component={HomePage}
           options={{
-            title: '홈',
+            tabBarShowLabel: false,
             tabBarIcon: ({ color, size }) => (
               <Icon name="home" color={color} size={size} />
             ),
@@ -54,7 +54,7 @@ export default function MainPage() {
           name="Analysis"
           component={AnalysisPage}
           options={{
-            title: '전력분석',
+            tabBarShowLabel: false,
             tabBarIcon: ({ color, size }) => (
               <Icon5 name="bolt" color={color} size={size} />
             ),
@@ -63,7 +63,7 @@ export default function MainPage() {
           name="Shop"
           component={ShopPage}
           options={{
-            title: '에코샵',
+            tabBarShowLabel: false,
             tabBarIcon: ({ color, size }) => (
               <Icon name="tags" color={color} size={size} />
             ),
@@ -72,7 +72,7 @@ export default function MainPage() {
           name="News"
           component={NewsPage}
           options={{
-            title: '뉴스',
+            tabBarShowLabel: false,
             tabBarIcon: ({ color, size }) => (
               <Icon name="newspaper-o" color={color} size={size} />
             ),
@@ -81,7 +81,7 @@ export default function MainPage() {
           name="Menu"
           component={MenuPage}
           options={{
-            title: '메뉴',
+            tabBarShowLabel: false,
             tabBarIcon: ({ color, size }) => (
               <Icon5 name="ellipsis-v" color={color} size={size} />
             ),
@@ -96,5 +96,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#88b04b',
   },
-  
+
 });

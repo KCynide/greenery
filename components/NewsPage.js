@@ -12,7 +12,7 @@ import {
 function NewsPage() {
   return (
     <View style={styles.container}>
-      <Text></Text>
+      <Text>News</Text>
     </View>
   );
 }

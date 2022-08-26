@@ -9,10 +9,10 @@ import {
   View
 } from "react-native";
 
-function CreatAccount() {
+function SettingPage() {
   return (
     <View style={styles.container}>
-      <Text>creataccount</Text>
+      <Text>Menu</Text>
     </View>
   );
 }
@@ -26,4 +26,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CreatAccount;
+export default SettingPage;
