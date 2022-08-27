@@ -40,7 +40,7 @@ function Login({ navigation }) {
       <TouchableOpacity>
         <Text style={styles.creataccount_button}>Creat Account</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('MainPage')}>
+      <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('BottombarPage')}>
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
     </View>

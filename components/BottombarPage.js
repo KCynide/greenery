@@ -19,10 +19,12 @@ import MenuPage from './MenuPage';
 import AnalysisPage from './AnalysisPage';
 import NewsPage from './NewsPage';
 import HomePage from './HomePage';
+import TobbarPage from './TobbarPage';
+import SettingPage from './SettingPage';
 
 
 
-export default function MainPage() {
+export default function BottombarPage() {
   return (
 /**네비게이터*/
       <Tab.Navigator
@@ -36,8 +38,8 @@ export default function MainPage() {
             color: 'white',
             height: 65,
           },
-          tabBarActiveTintColor: '#C7C452',
-          tabBarInactiveTintColor: '#363738',
+          tabBarActiveTintColor: '#fff',
+          tabBarInactiveTintColor: '#577030',
         }}
       >
         <Tab.Screen
@@ -87,7 +89,6 @@ export default function MainPage() {
             ),
           }} />
       </Tab.Navigator>
-
 );
 }
 
@@ -96,5 +97,4 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#88b04b',
   },
-
 });

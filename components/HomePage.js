@@ -11,51 +11,27 @@ import {
   ScrollView,
   StatusBar,
 } from "react-native";
-import * as Location from "expo-location";
+import city from '../App';
+
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import SettingPage from './SettingPage';
+import { TabActions } from '@react-navigation/native';
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
-function HomePage() {
-    const [city, setCity] = useState("Loading...");
-    const [location, setLocation] = useState();
-    const [ok, setOk] = useState(true);
-    const ask = async () => {
-    const { granted } = await Location.requestForegroundPermissionsAsync();
-      if (!granted) {
-        setOk(false);
-      }
-      const {
-        coords: { latitude, longitude },
-      } = await Location.getCurrentPositionAsync({ accuracy: 5 });
-      const location = await Location.reverseGeocodeAsync(
-        { latitude, longitude },
-        { useGoogleMaps: false }
-      );
-      setCity(location[0].city);
-    };
-    useEffect(() => {
-      ask();
-    }, []);
-    return (
-      <View style={styles.container}>
-        <View style={styles.tobtabs}>
-          <View style={styles.city}>
-            <Text style={styles.cityName}>{city}</Text>
-          </View>
-        </View>
-      <ScrollView
-        pagingEnabled
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.weather}
-      >
-      </ScrollView>
-    </View>
-    );
-}
 
+function HomePage() {
+  return (
+  <View style={styles.container}>
+    <View style={styles.tobtabs}>
+        <View style={styles.city}>
+            <Text style={styles.cityName}>{city}</Text>
+        </View>
+    </View>
+  </View>
+  );
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -65,15 +41,25 @@ const styles = StyleSheet.create({
     tobtabs: {
       flex: 1,
       height: 50,
-
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      borderBottomColor: "#fff",
+      borderBottomWidth: 1,
+    },
+    familynumber: {
+      flex: 1,
     },
     city: {
-        flex: 1,
+      flex: 1,
     },
     cityName: {
-        fontSize: 20,
-        fontWeight: "500",
+      fontSize: 20,
+      fontWeight: "500",
     },
+    setting: {
+      flex: 1,
+    }
 });
 
 export default HomePage;

@@ -9,12 +9,14 @@ import {
   View
 } from "react-native";
 
-function SettingPage() {
-  return (
+export default function TobbarPage() {
     <View style={styles.container}>
-      <Text>Setting</Text>
+        <View style={styles.tobtabs}>
+            <View style={styles.city}>
+                <Text style={styles.cityName}>{city}</Text>
+            </View>
+        </View>
     </View>
-  );
 }
 
 const styles = StyleSheet.create({
@@ -25,5 +27,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-export default SettingPage;
