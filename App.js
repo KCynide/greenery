@@ -15,7 +15,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as Location from "expo-location";
 
-
 import BottombarPage from './components/BottombarPage';
 import Login from './components/Login';
 import TobbarPage from './components/TobbarPage';
@@ -25,11 +24,33 @@ import ShopPage from './components/ShopPage';
 import MenuPage from './components/MenuPage';
 import AnalysisPage from './components/AnalysisPage';
 import SettingPage from './components/SettingPage';
+import HomePage from './components/HomePage';
 
 
 const Stack = createStackNavigator();
 
+
 export default function App() {
+  const [city, setCity] = useState("Loading...");
+  const [location, setLocation] = useState();
+  const [ok, setOk] = useState(true);
+  const ask = async () => {
+    const { granted } = await Location.requestForegroundPermissionsAsync();
+    if (!granted) {
+      setOk(false);
+    }
+    const {
+      coords: { latitude, longitude },
+    } = await Location.getCurrentPositionAsync({ accuracy: 5 });
+    const location = await Location.reverseGeocodeAsync(
+      { latitude, longitude },
+      { useGoogleMaps: false }
+    );
+    setCity(location[0].city);
+  };
+  useEffect(() => {
+    ask();
+  }, []);
   return (
     <NavigationContainer>
       <Stack.Navigator

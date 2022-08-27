@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import * as Location from "expo-location";
 import {
   StyleSheet,
   Text,
@@ -11,17 +12,34 @@ import {
   ScrollView,
   StatusBar,
 } from "react-native";
-import city from '../App';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import SettingPage from './SettingPage';
-import { TabActions } from '@react-navigation/native';
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
 
 function HomePage() {
+  const [city, setCity] = useState("Loading...");
+  const [ok, setOk] = useState(true);
+  const ask = async () => {
+    const { granted } = await Location.requestForegroundPermissionsAsync();
+    if (!granted) {
+      setOk(false);
+    }
+    const {
+      coords: { latitude, longitude },
+    } = await Location.getCurrentPositionAsync({ accuracy: 5 });
+    const location = await Location.reverseGeocodeAsync(
+      { latitude, longitude },
+      { useGoogleMaps: false }
+    );
+    setCity(location[0].city);
+  };
+  useEffect(() => {
+    ask();
+  }, []);
   return (
   <View style={styles.container}>
     <View style={styles.tobtabs}>
