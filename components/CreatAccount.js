@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from 'react';
 import {
   StyleSheet,
   Text,
@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 function CreatAccount() {
   return (

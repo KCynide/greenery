@@ -26,7 +26,6 @@ import SettingPage from './SettingPage';
 
 export default function BottombarPage() {
   return (
-/**네비게이터*/
       <Tab.Navigator
         inactiveColor="white"
         shifting={true}
