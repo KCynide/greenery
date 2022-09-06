@@ -46,7 +46,6 @@ export default function App() {
       { latitude, longitude },
       { useGoogleMaps: false }
     );
-    setCity(location[0].city);
   };
   useEffect(() => {
     ask();

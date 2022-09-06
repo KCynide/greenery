@@ -57,13 +57,13 @@ function HomePage({ navigation }) {
         <Icon name="gear" size={30} color="#ffffff" />
       </TouchableOpacity>
     </View>
-    <View style={styles.homepage1}>
+    <ScrollView style={styles.homepage1}>
       <View style={styles.homepagesetting}>
-        <Text>
+        <Text style={styles.homepagetext}>
           Home
         </Text>
       </View>
-    </View>
+    </ScrollView>
   </View>
   );
 }
@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
       
     },
     homepage1: {
+      marginTop: 60,
       flex: 1,
       flexDirection: "row",
       justifyContent: "center",
@@ -108,9 +109,15 @@ const styles = StyleSheet.create({
     },
     homepagesetting: {
       backgroundColor: "#bdaa46",
-      width: "80%",
-      height: "80%",
-    }
+      width: "90%",
+      height: "90%",
+      borderRadius: 25,
+      justifyContent: "center",
+      alignItems: "center"
+    },
+    homepagetext: {
+      fontSize: 20,
+    },
 });
 
 export default HomePage;

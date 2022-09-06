@@ -48,6 +48,13 @@ function MenuPage({ navigation }) {
         <Icon name="gear" size={30} color="#ffffff" />
       </TouchableOpacity>
     </View>
+    <View style={styles.menupage1}>
+      <View style={styles.menupagesetting}>
+        <Text style={styles.menupagetext}>
+          Menu
+        </Text>
+      </View>
+    </View>
   </View>
   );
 }
@@ -83,7 +90,25 @@ const styles = StyleSheet.create({
   },
   setting: {
     
-  }
+  },
+  menupage1: {
+    marginTop: 60,
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  menupagesetting: {
+    backgroundColor: "#92BD51",
+    width: "90%",
+    height: "90%",
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  menupagetext: {
+    fontSize: 20,
+  },
 });
 
 export default MenuPage;

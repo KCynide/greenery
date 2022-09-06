@@ -48,6 +48,13 @@ function NewsPage({ navigation }) {
         <Icon name="gear" size={30} color="#ffffff" />
       </TouchableOpacity>
     </View>
+    <View style={styles.newspage1}>
+      <View style={styles.newspagesetting}>
+        <Text style={styles.newspagetext}>
+          News
+        </Text>
+      </View>
+    </View>
   </View>
   );
 }
@@ -83,7 +90,25 @@ const styles = StyleSheet.create({
   },
   setting: {
     
-  }
+  },
+  newspage1: {
+    marginTop: 60,
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  newspagesetting: {
+    backgroundColor: "#92BD51",
+    width: "90%",
+    height: "90%",
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  newspagetext: {
+    fontSize: 20,
+  },
 });
 
 export default NewsPage;

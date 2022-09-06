@@ -48,6 +48,13 @@ function AnalysisPage({ navigation }) {
         <Icon name="gear" size={30} color="#ffffff" />
       </TouchableOpacity>
     </View>
+    <View style={styles.analysispage1}>
+      <View style={styles.analysispagesetting}>
+        <Text style={styles.analysispagetext}>
+          Analysis
+        </Text>
+      </View>
+    </View>
   </View>
   );
 }
@@ -83,7 +90,25 @@ const styles = StyleSheet.create({
   },
   setting: {
     
-  }
+  },
+  analysispage1: {
+    marginTop: 60,
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  analysispagesetting: {
+    backgroundColor: "#92BD51",
+    width: "90%",
+    height: "90%",
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  analysispagetext: {
+    fontSize: 20,
+  },
 });
 
 export default AnalysisPage;

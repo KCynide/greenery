@@ -17,6 +17,7 @@ function Login({ navigation }) {
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={require("greenery/assets/logo-greenery.png")} />
+      <Text style={styles.logotext}>Enervice</Text>
       <StatusBar style="auto" />
       <View style={styles.inputView}>
         <TextInput
@@ -60,6 +61,11 @@ const styles = StyleSheet.create({
     marginBottom: 40
  
   },
+  logotext: {
+    marginBottom: 40,
+    fontSize: 40,
+    fontWeight: "500",
+  },
   inputView: {
     backgroundColor: "#fff",
     borderRadius: 30,
@@ -93,7 +99,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginTop: 20,
     marginBottom: 60,
-    backgroundColor: "#C7C452",
+    backgroundColor: "#BDAA46",
   },
 });
 
