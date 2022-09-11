@@ -57,7 +57,7 @@ function HomePage({ navigation }) {
         <Icon name="gear" size={30} color="#ffffff" />
       </TouchableOpacity>
     </View>
-    <ScrollView style={styles.homepage1}>
+    <ScrollView contentContainerStyle={styles.homepage1}>
       <View style={styles.homepagesetting}>
         <Text style={styles.homepagetext}>
           Home
