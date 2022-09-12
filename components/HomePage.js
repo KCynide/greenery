@@ -15,8 +15,6 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import SettingPage from './SettingPage';
-
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
 
@@ -62,24 +60,50 @@ function HomePage({ navigation }) {
       <View style={styles.homepagetext}>
         <View style={styles.firstline}>
           <Text style={styles.firstline1}>
-            Your Electricity Usage of the Month :
+            Your Electricity Usage of the Month
           </Text>
+          <Text style={styles.colon}> : </Text>
           <Text style={styles.firstline2}>
             290kWh
           </Text>
         </View>
         <View style={styles.secondline}>
           <Text style={styles.secondline1}>
-            Average of your Household :
+            Average Usage of your Household
           </Text>
+          <Text style={styles.colon}> : </Text>
           <Text style={styles.secondline2}>
             190kWh
           </Text>
         </View>
         <View style={styles.thirdline}>
-          <Text style={styles.thirdline1}></Text>
-          <Text style={styles.thirdline2}></Text>
+          <Text style={styles.thirdline1}>
+            Power generation through self-generation
+          </Text>
+          <Text style={styles.colon}> : </Text>
+          <Text style={styles.thirdline2}>
+            10kWh
+          </Text>
         </View>
+        <View style={styles.fourthline}>
+          <Text style={styles.fourthline1}>This month you've planted</Text>
+          <Text style={styles.fourthline2}>0.5</Text>
+          <Text style={styles.fourthline3}>tree</Text>
+        </View>
+        <View style={styles.fourthlineplus}>
+          <Text style={styles.fourthlineplus1}>You've saved...</Text>
+          <Text style={styles.fourthlineplus2}>100</Text>
+          <Text style={styles.fourthlineplus3}>kg-CO2</Text>
+        </View>
+        <View style={styles.underline}></View>
+        <TouchableOpacity style={styles.fifthline}>
+          <Icon name="angle-right" size={20} color="#000000" />
+          <Text style={styles.fifthline1}>Self-Power Recommendation</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.sixthline} onPress={() => navigation.navigate('ShopPage')}>
+          <Icon name="angle-right" size={20} color="#000000" />
+          <Text style={styles.fifthline1}>Shop Page</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   </View>
@@ -121,7 +145,6 @@ const styles = StyleSheet.create({
     homepage1: {
       marginTop: 60,
       flex: 1,
-      flexDirection: "row",
       justifyContent: "center",
       alignItems: "center",
     },
@@ -130,31 +153,100 @@ const styles = StyleSheet.create({
       width: "90%",
       height: "90%",
       borderRadius: 25,
-      justifyContent: "center",
-      alignItems: "center"
+      alignItems: "center",
     },
     firstline: {
       width: "90%",
       flexDirection: "row",
-      alignItems: "center",
+      alignItems: "flex-end",
+      marginTop: 30,
+      paddingLeft: 20,
     },
     firstline1: {
       fontSize: 20,
+      width: "60%",
     },
     firstline2: {
-      fontSize: 20,
+      fontSize: 30,
     },
     secondline: {
       width: "90%",
       flexDirection: "row",
+      alignItems: "flex-end",
+      paddingTop: 20,
+      paddingLeft: 20,
     },
     secondline1: {
       fontSize: 20,
+      width: "60%",
     },
     secondline2: {
+      fontSize: 30,
+    },
+    thirdline: {
+      width: "90%",
+      flexDirection: "row",
+      alignItems: "flex-end",
+      paddingTop: 20,
+      paddingLeft: 20,
+    },
+    thirdline1: {
+      fontSize: 20,
+      width: "60%",
+    },
+    thirdline2: {
+      fontSize: 30,
+    },
+    fourthline: {
+      width: "90%",
+      height: "10%",
+      flexDirection: "row",
+      alignItems: "flex-end",
+      paddingTop: 10,
+      paddingLeft: 20,
+    },
+    fourthline1: {
       fontSize: 20,
     },
-
+    fourthline2: {
+      fontSize: 30,
+      paddingLeft: 10,
+    },
+    fourthline3: {
+      fontSize: 20,
+      paddingLeft: 10,
+    },
+    underline: {
+      width: "85%",
+      borderBottomColor: "#ffffff",
+      borderBottomWidth: 1,
+      marginTop: 30,
+    },
+    fifthline: {
+      width: "90%",
+      flexDirection: "row",
+      alignItems: "center",
+      marginTop: 30,
+      marginLeft: 30,
+    },
+    fifthline1: {
+      fontSize: 15,
+      paddingLeft: 10,
+    },
+    sixthline: {
+      width: "90%",
+      flexDirection: "row",
+      alignItems: "center",
+      paddingTop: 20,
+      marginLeft: 30,
+    },
+    sixthline1: {
+      fontSize: 15,
+      paddingLeft: 10,
+    },
+    colon: {
+      fontSize: 30,
+    },
 });
 
 export default HomePage;

@@ -49,6 +49,9 @@ function ShopPage({ navigation }) {
       </TouchableOpacity>
     </View>
     <View style={styles.shoppage1}>
+      <TouchableOpacity onPress={() => navigation.pop()}>
+        <Icon name="angle-left" size={30} color="#ffffff" />
+      </TouchableOpacity>
       <View style={styles.shoppagesetting}>
         <Text style={styles.shoppagetext}>
           Shop

@@ -61,6 +61,7 @@ export default function App() {
         <Stack.Screen name="BottombarPage" component={BottombarPage} />
         <Stack.Screen name="TobbarPage" component={TobbarPage} />
         <Stack.Screen name="SettingPage" component={SettingPage} />
+        <Stack.Screen name="ShopPage" component={ShopPage} />
       </Stack.Navigator>
     </NavigationContainer>
 );
