@@ -22,6 +22,7 @@ const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
 function HomePage({ navigation }) {
   const [city, setCity] = useState("Loading...");
+  const [location, setLocation] = useState();
   const [ok, setOk] = useState(true);
   const ask = async () => {
     const { granted } = await Location.requestForegroundPermissionsAsync();
@@ -33,9 +34,9 @@ function HomePage({ navigation }) {
     } = await Location.getCurrentPositionAsync({ accuracy: 5 });
     const location = await Location.reverseGeocodeAsync(
       { latitude, longitude },
-      { useGoogleMaps: false }
+      { useGoogleMaps: false },
     );
-    setCity(location[0].city);
+    setCity(location[0].region);
   };
   useEffect(() => {
     ask();
@@ -58,10 +59,27 @@ function HomePage({ navigation }) {
       </TouchableOpacity>
     </View>
     <ScrollView contentContainerStyle={styles.homepage1}>
-      <View style={styles.homepagesetting}>
-        <Text style={styles.homepagetext}>
-          Home
-        </Text>
+      <View style={styles.homepagetext}>
+        <View style={styles.firstline}>
+          <Text style={styles.firstline1}>
+            Your Electricity Usage of the Month :
+          </Text>
+          <Text style={styles.firstline2}>
+            290kWh
+          </Text>
+        </View>
+        <View style={styles.secondline}>
+          <Text style={styles.secondline1}>
+            Average of your Household :
+          </Text>
+          <Text style={styles.secondline2}>
+            190kWh
+          </Text>
+        </View>
+        <View style={styles.thirdline}>
+          <Text style={styles.thirdline1}></Text>
+          <Text style={styles.thirdline2}></Text>
+        </View>
       </View>
     </ScrollView>
   </View>
@@ -107,7 +125,7 @@ const styles = StyleSheet.create({
       justifyContent: "center",
       alignItems: "center",
     },
-    homepagesetting: {
+    homepagetext: {
       backgroundColor: "#bdaa46",
       width: "90%",
       height: "90%",
@@ -115,9 +133,28 @@ const styles = StyleSheet.create({
       justifyContent: "center",
       alignItems: "center"
     },
-    homepagetext: {
+    firstline: {
+      width: "90%",
+      flexDirection: "row",
+      alignItems: "center",
+    },
+    firstline1: {
       fontSize: 20,
     },
+    firstline2: {
+      fontSize: 20,
+    },
+    secondline: {
+      width: "90%",
+      flexDirection: "row",
+    },
+    secondline1: {
+      fontSize: 20,
+    },
+    secondline2: {
+      fontSize: 20,
+    },
+
 });
 
 export default HomePage;

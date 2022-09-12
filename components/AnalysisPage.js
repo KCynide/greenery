@@ -26,7 +26,7 @@ function AnalysisPage({ navigation }) {
       { latitude, longitude },
       { useGoogleMaps: false }
     );
-    setCity(location[0].city);
+    setCity(location[0].region);
   };
   useEffect(() => {
     ask();
