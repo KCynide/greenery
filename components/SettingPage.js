@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
   underline1: {
     width: "95%",
     borderBottomColor: "#ffffff",
-    borderBottomWidth: 2,
+    borderBottomWidth: 3,
     marginTop: 20,
   },
   underline: {
