@@ -15,12 +15,9 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const { width: SCREEN_WIDTH } = Dimensions.get("window");
-
 
 function HomePage({ navigation }) {
   const [city, setCity] = useState("Loading...");
-  const [location, setLocation] = useState();
   const [ok, setOk] = useState(true);
   const ask = async () => {
     const { granted } = await Location.requestForegroundPermissionsAsync();
@@ -56,7 +53,7 @@ function HomePage({ navigation }) {
         <Icon name="gear" size={30} color="#ffffff" />
       </TouchableOpacity>
     </View>
-    <ScrollView contentContainerStyle={styles.homepage1}>
+    <View style={styles.homepage1}>
       <View style={styles.homepagetext}>
         <View style={styles.firstline}>
           <Text style={styles.firstline1}>
@@ -105,7 +102,7 @@ function HomePage({ navigation }) {
           <Text style={styles.fifthline1}>Shop Page</Text>
         </TouchableOpacity>
       </View>
-    </ScrollView>
+    </View>
   </View>
   );
 }
@@ -149,7 +146,7 @@ const styles = StyleSheet.create({
       alignItems: "center",
     },
     homepagetext: {
-      backgroundColor: "#bdaa46",
+      backgroundColor: "#a0c16d",
       width: "90%",
       height: "90%",
       borderRadius: 25,
@@ -213,6 +210,26 @@ const styles = StyleSheet.create({
       paddingLeft: 10,
     },
     fourthline3: {
+      fontSize: 20,
+      paddingLeft: 10,
+    },
+    fourthlineplus: {
+      width: "90%",
+      height: "10%",
+      flexDirection: "row",
+      alignItems: "flex-end",
+      justifyContent: "flex-start",
+      paddingLeft: 10,
+    },
+    fourthlineplus1: {
+      fontSize: 30,
+      paddingLeft: 10,
+    },
+    fourthlineplus2: {
+      fontSize: 40,
+      paddingLeft: 10,
+    },
+    fourthlineplus3: {
       fontSize: 20,
       paddingLeft: 10,
     },
