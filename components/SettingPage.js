@@ -13,7 +13,7 @@ import * as Location from "expo-location";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
 
-function SettingPage({navigation}) {
+function SettingPage({navigation,item, onPress, style}) {
   const [city, setCity] = useState("Loading...");
   const [ok, setOk] = useState(true);
   const ask = async () => {
@@ -33,6 +33,11 @@ function SettingPage({navigation}) {
   useEffect(() => {
     ask();
   }, []);
+  const electronics = [
+    {
+      title: 'Settings',
+    }
+  ]
   return (
     <View style={styles.container}>
       <View style={styles.title}>
