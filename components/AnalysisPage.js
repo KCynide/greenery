@@ -12,7 +12,7 @@ import * as Location from "expo-location";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 function AnalysisPage({ navigation }) {
-  const [city, setCity] = useState("Loading...");
+  const [city, setCity] = useState(true);
   const [ok, setOk] = useState(true);
   const ask = async () => {
     const { granted } = await Location.requestForegroundPermissionsAsync();
