@@ -17,7 +17,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 function HomePage({ navigation }) {
-  const [city, setCity] = useState("Loading...");
+  const [city, setCity] = useState([]);
   const [ok, setOk] = useState(true);
   const ask = async () => {
     const { granted } = await Location.requestForegroundPermissionsAsync();

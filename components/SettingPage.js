@@ -14,12 +14,13 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
 import settingdata from './settingdata';
 import { Transition, Transitioning } from 'react-native-reanimated';
+import { StatusBar } from 'expo-status-bar';
 
 const transition = (
   <Transition.Together>
-    <Transition.In type='fade' durationMs={200} />
+    <Transition.In type='fade' />
     <Transition.Change />
-    <Transition.Out type='fade' durationMs={200} />
+    <Transition.Out type='fade' />
   </Transition.Together>
 );
 
@@ -43,11 +44,9 @@ function SettingPage({navigation,item, onPress, style}) {
   useEffect(() => {
     ask();
   }, []);
-  const electronics = [
-    {
-      title: 'Settings',
-    }
-  ]
+  const [currentIndex, setCurrentIndex] = React.useState(null);
+  const ref = React.useRef();
+
   return (
     <View style={styles.container}>
       <View style={styles.title}>
@@ -80,72 +79,48 @@ function SettingPage({navigation,item, onPress, style}) {
       <View style={styles.underlineview}>
         <View style={styles.underline1}></View>
       </View>
-      <TouchableOpacity>
-      <View style={styles.electronics}>
-          <Icon5 style = {styles.electronicsicon} name="plug" size={30} color="#000000" />
-            <Text style = {styles.electronicstext1}>Manage House Appliances</Text>
-          
-          <Icon5 style = {styles.toggledown} name="chevron-down" size={20} color="#000000" />
-      </View>
-      </TouchableOpacity>
-      <View style={styles.underlineview}>
-        <View style={styles.underline}></View>
-      </View>
-      <TouchableOpacity>
-      <View style={styles.electronics}>
-          <Icon5 style = {styles.electronicsicon} name="plug" size={30} color="#000000" />
-            <Text style = {styles.electronicstext1}>Manage House Appliances</Text>
-          
-          <Icon5 style = {styles.toggledown} name="chevron-down" size={20} color="#000000" />
-      </View>
-      </TouchableOpacity>
-      <View style={styles.underlineview}>
-        <View style={styles.underline}></View>
-      </View>
-      <TouchableOpacity>
-      <View style={styles.electronics}>
-          <Icon5 style = {styles.electronicsicon} name="plug" size={30} color="#000000" />
-            <Text style = {styles.electronicstext1}>Manage House Appliances</Text>
-          
-          <Icon5 style = {styles.toggledown} name="chevron-down" size={20} color="#000000" />
-      </View>
-      </TouchableOpacity>
-      <View style={styles.underlineview}>
-        <View style={styles.underline}></View>
-      </View>
-      <TouchableOpacity>
-      <View style={styles.electronics}>
-          <Icon5 style = {styles.electronicsicon} name="plug" size={30} color="#000000" />
-            <Text style = {styles.electronicstext1}>Manage House Appliances</Text>
-          
-          <Icon5 style = {styles.toggledown} name="chevron-down" size={20} color="#000000" />
-      </View>
-      </TouchableOpacity>
-      <View style={styles.underlineview}>
-        <View style={styles.underline}></View>
-      </View>
-      <TouchableOpacity>
-      <View style={styles.electronics}>
-          <Icon5 style = {styles.electronicsicon} name="plug" size={30} color="#000000" />
-            <Text style = {styles.electronicstext1}>Manage House Appliances</Text>
-          
-          <Icon5 style = {styles.toggledown} name="chevron-down" size={20} color="#000000" />
-      </View>
-      </TouchableOpacity>
-      <View style={styles.underlineview}>
-        <View style={styles.underline}></View>
-      </View>
-      <TouchableOpacity>
-      <View style={styles.electronics}>
-          <Icon5 style = {styles.electronicsicon} name="plug" size={30} color="#000000" />
-            <Text style = {styles.electronicstext1}>Manage House Appliances</Text>
-          
-          <Icon5 style = {styles.toggledown} name="chevron-down" size={20} color="#000000" />
-      </View>
-      </TouchableOpacity>
-      <View style={styles.underlineview}>
-        <View style={styles.underline}></View>
-      </View>
+
+      <Transitioning.View
+      ref={ref}
+      transition={transition}
+      style={styles.container}
+    >
+      <StatusBar hidden />
+      {settingdata.map(({ bg, category, cardicon, subCategories }, index) => {
+        return (
+          <TouchableOpacity
+            key={category}
+            onPress={() => {
+              ref.current.animateNextTransition();
+              setCurrentIndex(index === currentIndex ? null : index);
+            }}
+            style={styles.cardContainer}
+            activeOpacity={0.9}
+          >
+            <View style={[styles.card]}>
+              <View style={styles.electronics}>
+                <Icon5 style = {styles.electronicsicon} name={cardicon} size={20} color="#000000" />
+                <Text style={[styles.electronicstext1]}>{category}</Text>
+                <Icon5 style = {styles.toggledown} name="chevron-down" size={20} color="#000000" />
+              </View>
+              {index === currentIndex && (
+                <TouchableOpacity style={styles.subCategoriesList}>
+                  {subCategories.map((subCategory) => (
+                    <Text key={subCategory} style={[styles.subCategoriesListText]}>
+                      {subCategory}
+                    </Text>
+                  ))}
+                </TouchableOpacity>
+              )}
+
+            </View>
+            <View style={styles.underlineview}>
+              <View style={styles.underline}></View>
+            </View>
+          </TouchableOpacity>
+        );
+      })}
+    </Transitioning.View>
     </View>
   );
 }
@@ -223,6 +198,14 @@ const styles = StyleSheet.create({
   toggledown: {
     marginLeft: 10,
     marginTop: 5,
+  },
+  subCategoriesList: {
+    marginTop: 10,
+    marginLeft: 25,
+    fontSize: 20,
+  },
+  subCategoriesListText: {
+    marginBottom: 10,
   },
 });
 
