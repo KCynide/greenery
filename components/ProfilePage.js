@@ -11,7 +11,7 @@ import {
 import * as Location from "expo-location";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-function ShopPage({ navigation }) {
+function ProfilePage({ navigation }) {
   const [city, setCity] = useState("Loading...");
   const [ok, setOk] = useState(true);
   const ask = async () => {
@@ -34,30 +34,17 @@ function ShopPage({ navigation }) {
   return (
   <View style={styles.container}>
     <View style={styles.tobtabs}>
-      <View style={styles.nullfreunde} />
-      <Text style={styles.nhousehold}>
-        1인 가구
-      </Text>
-      <View style={styles.city}>
-        <Text style={styles.cityName}>{city}</Text>
-      </View>
       <TouchableOpacity
         style={styles.setting}
-        onPress={() => navigation.navigate('SettingPage')}
+        onPress={() => navigation.pop()}
       >
-        <Icon name="gear" size={30} color="#ffffff" />
-      </TouchableOpacity>
-    </View>
-  
-    <View style={styles.shoppage1}>
-      <View style={styles.title}>
-      <TouchableOpacity onPress={() => navigation.pop()}>
         <Icon name="angle-left" size={30} color="#ffffff" />
       </TouchableOpacity>
-      </View>
-      <View style={styles.shoppagesetting}>
-        <Text style={styles.shoppagetext}>
-          Shop
+    </View>
+    <View style={styles.profilepage1}>
+      <View style={styles.profilepagesetting}>
+        <Text style={styles.profilepagetext}>
+          Profile Settings
         </Text>
       </View>
     </View>
@@ -97,14 +84,14 @@ const styles = StyleSheet.create({
   setting: {
     
   },
-  shoppage1: {
+  profilepage1: {
     marginTop: 60,
     flex: 1,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
   },
-  shoppagesetting: {
+  profilepagesetting: {
     backgroundColor: "#92BD51",
     width: "90%",
     height: "90%",
@@ -112,9 +99,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  shoppagetext: {
+  profilepagetext: {
     fontSize: 20,
   },
 });
 
-export default ShopPage;
+export default ProfilePage;

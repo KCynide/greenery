@@ -25,6 +25,7 @@ import MenuPage from './components/MenuPage';
 import AnalysisPage from './components/AnalysisPage';
 import SettingPage from './components/SettingPage';
 import HomePage from './components/HomePage';
+import ProfilePage from './components/ProfilePage';
 
 
 const Stack = createStackNavigator();
@@ -62,6 +63,7 @@ export default function App() {
         <Stack.Screen name="TobbarPage" component={TobbarPage} />
         <Stack.Screen name="SettingPage" component={SettingPage} />
         <Stack.Screen name="ShopPage" component={ShopPage} />
+        <Stack.Screen name="ProfilePage" component={ProfilePage} />
       </Stack.Navigator>
     </NavigationContainer>
 );

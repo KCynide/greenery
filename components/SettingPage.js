@@ -24,8 +24,8 @@ const transition = (
   </Transition.Together>
 );
 
-function SettingPage({navigation,item, onPress, style}) {
-  const [city, setCity] = useState("Loading...");
+function SettingPage({navigation, item, onPress, style}) {
+  const [city, setCity] = useState([null]);
   const [ok, setOk] = useState(true);
   const ask = async () => {
     const { granted } = await Location.requestForegroundPermissionsAsync();
@@ -62,17 +62,26 @@ function SettingPage({navigation,item, onPress, style}) {
         <View style={styles.profiletext}>
           <View>
             <View style={styles.profiletextnull}>
-              <Text></Text>
+              <Text>
+
+              </Text>
             </View>
             <View style={styles.profiletextnameline}>
               <Text style={styles.profiletextname}>Bae Junyeol</Text>
-              <TouchableOpacity>
+              <View style={styles.nullfreund}></View>
+              <TouchableOpacity
+              onPress={() => navigation.navigate('ProfilePage')}
+              >
                 <Text style={styles.profilesettings}>settings</Text>
               </TouchableOpacity>
             </View>
           </View>
-          <View>
+          <View style={styles.profiletextnameline}>
             <Text style={styles.profiletextplus}>{city}</Text>
+            <View style={styles.nullfreund}></View>
+            <TouchableOpacity>
+              <Text style={styles.profilelogout}>Logout</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -84,7 +93,7 @@ function SettingPage({navigation,item, onPress, style}) {
       ref={ref}
       transition={transition}
       style={styles.container}
-    >
+      >
       <StatusBar hidden />
       {settingdata.map(({ bg, category, cardicon, subCategories }, index) => {
         return (
@@ -104,13 +113,15 @@ function SettingPage({navigation,item, onPress, style}) {
                 <Icon5 style = {styles.toggledown} name="chevron-down" size={20} color="#000000" />
               </View>
               {index === currentIndex && (
-                <TouchableOpacity style={styles.subCategoriesList}>
+                <View>
                   {subCategories.map((subCategory) => (
+                    <TouchableOpacity key={subCategory} style={styles.subCategoriesList}>
                     <Text key={subCategory} style={[styles.subCategoriesListText]}>
                       {subCategory}
                     </Text>
+                    </TouchableOpacity>
                   ))}
-                </TouchableOpacity>
+                  </View>
               )}
 
             </View>
@@ -162,6 +173,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  nullfreund: {
+  },
   profilephotoimage: {
     width: 100,
     height: 100,
@@ -171,6 +184,8 @@ const styles = StyleSheet.create({
   profiletextnameline: {
     flexDirection: 'row',
     alignItems: 'center',
+    width: "65%",
+    justifyContent: 'space-between',
   },
   profilesettings: {
 
@@ -202,10 +217,11 @@ const styles = StyleSheet.create({
   subCategoriesList: {
     marginTop: 10,
     marginLeft: 25,
-    fontSize: 20,
+    width: "100%",
   },
   subCategoriesListText: {
     marginBottom: 10,
+    fontSize: 20,
   },
 });
 
