@@ -33,7 +33,7 @@ function ShopPage({ navigation }) {
   }, []);
   return (
   <View style={styles.container}>
-    <View style={styles.tobtabs}>
+    <View style={styles.tobtabs}/**상단 바 설정 */>
       <View style={styles.nullfreunde} />
       <Text style={styles.nhousehold}>
         1인 가구
@@ -50,7 +50,7 @@ function ShopPage({ navigation }) {
     </View>
   
     <View style={styles.shoppage1}>
-      <View style={styles.title}>
+      <View style={styles.title}/**이전 페이지로 돌아가기 */>
       <TouchableOpacity onPress={() => navigation.pop()}>
         <Icon name="angle-left" size={30} color="#ffffff" />
       </TouchableOpacity>

@@ -33,7 +33,7 @@ function NewsPage({ navigation }) {
   }, []);
   return (
   <View style={styles.container}>
-    <View style={styles.tobtabs}>
+    <View style={styles.tobtabs}/**상단 바 설정 */>
       <View style={styles.nullfreunde} />
       <Text style={styles.nhousehold}>
         1인 가구

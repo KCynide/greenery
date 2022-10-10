@@ -9,6 +9,7 @@ import {
   View
 } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
+/**회원가입 */
 
 function CreatAccount() {
   return (

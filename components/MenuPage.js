@@ -12,6 +12,7 @@ import * as Location from "expo-location";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 function MenuPage({ navigation }) {
+  /**위치 정보를 사용할지에 대해 사용자에게 물어봄 */
   const [city, setCity] = useState("Loading...");
   const [ok, setOk] = useState(true);
   const ask = async () => {
@@ -33,7 +34,7 @@ function MenuPage({ navigation }) {
   }, []);
   return (
   <View style={styles.container}>
-    <View style={styles.tobtabs}>
+    <View style={styles.tobtabs}/**상단 바 설정 */>
       <View style={styles.nullfreunde} />
       <Text style={styles.nhousehold}>
         1인 가구

@@ -15,6 +15,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as Location from "expo-location";
 
+/**다른 페이지 import하기 */
 import BottombarPage from './components/BottombarPage';
 import Login from './components/Login';
 import TobbarPage from './components/TobbarPage';
@@ -27,12 +28,13 @@ import SettingPage from './components/SettingPage';
 import HomePage from './components/HomePage';
 import ProfilePage from './components/ProfilePage';
 
-
+/**이게 있어야 한 페이지 내에서 여러 페이지를 띄울 수 있음*/
 const Stack = createStackNavigator();
 
 
 export default function App() {
-  const [city, setCity] = useState("Loading...");
+  /**위치 정보를 사용할지에 대해 사용자에게 물어봄 */
+  const [city, setCity] = useState([null]);
   const [location, setLocation] = useState();
   const [ok, setOk] = useState(true);
   const ask = async () => {
@@ -52,6 +54,7 @@ export default function App() {
     ask();
   }, []);
   return (
+    /**여러개의 페이지를 stack으로 불러옴. 이렇게 하면 버튼 및 아이콘을 눌렀을 때 다른 페이지로 이동하기 */
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}

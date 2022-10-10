@@ -10,9 +10,12 @@ import {
   Switch
 } from "react-native";
 import * as Location from "expo-location";
+/**웹 상에 있는 Icon을 불러와서 사용 */
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
+/**settingdata.js에 있는 정보를 사용한다는 것. 여기서는 그 안의 배열값에 맞추어  */
 import settingdata from './settingdata';
+/**Transition을 이용해서 토글 메뉴를 눌렀을 때 자연스럽게 열림 */
 import { Transition, Transitioning } from 'react-native-reanimated';
 import { StatusBar } from 'expo-status-bar';
 
@@ -25,6 +28,7 @@ const transition = (
 );
 
 function SettingPage({navigation, item, onPress, style}) {
+  /**위치 정보를 사용할지에 대해 사용자에게 물어봄 */
   const [city, setCity] = useState([null]);
   const [ok, setOk] = useState(true);
   const ask = async () => {
@@ -48,14 +52,15 @@ function SettingPage({navigation, item, onPress, style}) {
   const ref = React.useRef();
 
   return (
+/** container은 전체를 담고 있다 */
     <View style={styles.container}>
-      <View style={styles.title}>
+      <View style={styles.title}/**이전으로 돌아가는 화살표 넣음*/>
         <TouchableOpacity style={styles.settingicon} onPress={() => navigation.pop()}>
           <Icon name="angle-left" size={30} color="#ffffff" />
         </TouchableOpacity>
         <Text style={styles.titletext}>Settings</Text>
       </View>
-      <View style={styles.profile}>
+      <View style={styles.profile}/**유저의 프로필. 구현되지 않음*/>
         <View style={styles.profilephoto}>
           <Image style={styles.profilephotoimage} source={require("greenery/assets/logo-greenery.png")} />
         </View>
@@ -66,11 +71,12 @@ function SettingPage({navigation, item, onPress, style}) {
 
               </Text>
             </View>
-            <View style={styles.profiletextnameline}>
+            <View style={styles.profiletextnameline}/**프로필 암꺼나 넣음*/>
               <Text style={styles.profiletextname}>Bae Junyeol</Text>
               <View style={styles.nullfreund}></View>
               <TouchableOpacity
               onPress={() => navigation.navigate('ProfilePage')}
+              /**프로필 설정 창으로 넘어감. 구현 x */
               >
                 <Text style={styles.profilesettings}>settings</Text>
               </TouchableOpacity>
@@ -93,6 +99,7 @@ function SettingPage({navigation, item, onPress, style}) {
       ref={ref}
       transition={transition}
       style={styles.container}
+      /**transition을 이용해서 settingdata에 있는 값을 화면으로 구현. */
       >
       <StatusBar hidden />
       {settingdata.map(({ bg, category, cardicon, subCategories }, index) => {
@@ -136,6 +143,7 @@ function SettingPage({navigation, item, onPress, style}) {
   );
 }
 
+/**아래는 색, 크기, 위치 설정 */
 const styles = StyleSheet.create({
   container: {
     flex: 1,

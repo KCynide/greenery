@@ -22,9 +22,10 @@ import HomePage from './HomePage';
 import TobbarPage from './TobbarPage';
 import SettingPage from './SettingPage';
 
-
+ /**하단 바 페이지 */
 
 export default function BottombarPage() {
+  /**하단 바 페이지 설정 및 아이콘 */
   return (
       <Tab.Navigator
         inactiveColor="white"

@@ -24,7 +24,8 @@ function Login({ navigation }) {
           style={styles.TextInput}
           placeholder="Email."
           placeholderTextColor="#003f5c"
-          onChangeText={(email) => setEmail(email)} />
+          onChangeText={(email) => setEmail(email)} 
+          /** 로그인_이메일*//>
       </View>
       <View style={styles.inputView}>
         <TextInput
@@ -32,7 +33,8 @@ function Login({ navigation }) {
           placeholder="Password."
           placeholderTextColor="#003f5c"
           secureTextEntry={true}
-          onChangeText={(password) => setPassword(password)} />
+          onChangeText={(password) => setPassword(password)}
+           /** 로그인_비밀번호*/ />
       </View>
 
       <TouchableOpacity>
@@ -41,7 +43,7 @@ function Login({ navigation }) {
       <TouchableOpacity>
         <Text style={styles.creataccount_button}>Creat Account</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('BottombarPage')}>
+      <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('BottombarPage')} /**버튼*/>
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
     </View>
