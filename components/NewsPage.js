@@ -6,13 +6,29 @@ import {
   TextInput,
   Button,
   TouchableOpacity,
-  View
+  View,
+  SafeAreaView,
+  FlatList,
 } from "react-native";
 import * as Location from "expo-location";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import axios from "axios";
+import Article from './article/ArticlePage';
+
+
+
+
+const Item = props => (
+  <TouchableOpacity onPress={() => alert("ASIN:" + props.asin)}>
+    <Text>{props.title}</Text>
+    <Image source={{uri: props.imageUrl}}/>
+    <Text>{props.price}</Text>
+    <Text>{props.rating}</Text>
+  </TouchableOpacity>
+);
 
 function NewsPage({ navigation }) {
-  const [city, setCity] = useState("Loading...");
+  const [city, setCity] = useState([]);
   const [ok, setOk] = useState(true);
   const ask = async () => {
     const { granted } = await Location.requestForegroundPermissionsAsync();
@@ -31,6 +47,30 @@ function NewsPage({ navigation }) {
   useEffect(() => {
     ask();
   }, []);
+
+  const [articles,setArticles] = useState([]);
+  const getNews = () => {
+      axios.get('https://newsapi.org/v2/top-headlines?country=kr&apiKey=c1ef3317ba2e48c8aeab23ad33adb6e9',{
+          params:{
+              category: "science",
+          }
+      })
+          .then( (response) =>{
+              // handle success
+              setArticles(response.data.articles);
+          })
+          .catch(function (error) {
+              // handle error
+              console.log(error);
+          })
+          .then(function () {
+              // always executed
+          });
+  }
+  useEffect(() => {
+    getNews();
+  },[]);
+
   return (
   <View style={styles.container}>
     <View style={styles.tobtabs}/**상단 바 설정 */>
@@ -50,9 +90,23 @@ function NewsPage({ navigation }) {
     </View>
     <View style={styles.newspage1}>
       <View style={styles.newspagesetting}>
-        <Text style={styles.newspagetext}>
-          News
-        </Text>
+      <SafeAreaView style={styles.container}>
+            <FlatList
+                data={articles}
+                renderItem = {({item}) =>
+                    <Article
+                        urlToImage = {item.urlToImage}
+                        title = {item.title}
+                        description = {item.description}
+                        author = {item.author}
+                        publishedAt = {item.publishedAt}
+                        sourceName = {item.source.name}
+                        url={item.url}
+                    />}
+                keyExtractor = {(item) => item.title}
+            />
+
+        </SafeAreaView>
       </View>
     </View>
   </View>

@@ -27,6 +27,7 @@ import AnalysisPage from './components/AnalysisPage';
 import SettingPage from './components/SettingPage';
 import HomePage from './components/HomePage';
 import ProfilePage from './components/ProfilePage';
+import NewsPage from './components/NewsPage';
 
 /**이게 있어야 한 페이지 내에서 여러 페이지를 띄울 수 있음*/
 const Stack = createStackNavigator();
@@ -67,6 +68,8 @@ export default function App() {
         <Stack.Screen name="SettingPage" component={SettingPage} />
         <Stack.Screen name="ShopPage" component={ShopPage} />
         <Stack.Screen name="ProfilePage" component={ProfilePage} />
+        <Stack.Screen name="SearchPage" component={ProfilePage} />
+        <Stack.Screen name="NewsPage" component={ProfilePage} />
       </Stack.Navigator>
     </NavigationContainer>
 );
