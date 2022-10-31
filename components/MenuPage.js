@@ -35,7 +35,9 @@ function MenuPage({ navigation }) {
   return (
   <View style={styles.container}>
     <View style={styles.tobtabs}/**상단 바 설정 */>
-      <View style={styles.nullfreunde} />
+      <View style={styles.nullfreunde}>
+       <Image style={styles.iconimage} source={require("greenery/assets/Symbol.png")}/>
+      </View>
       <Text style={styles.nhousehold}>
         1인 가구
       </Text>
@@ -78,6 +80,10 @@ const styles = StyleSheet.create({
   },
   nullfreunde: {
     width: '40%',
+  },
+  iconimage: {
+    width: '60%',
+    height: '100%',
   },
   nhousehold: {
     fontSize: 20,
