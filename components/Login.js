@@ -9,15 +9,15 @@ import {
   TouchableOpacity,
 } from "react-native";
 import {useState} from "react";
-
+import * as Font from 'expo-font';
+import { render } from "react-dom";
 
 function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={require("greenery/assets/logo-greenery.png")} />
-      <Text style={styles.logotext}>Enervice</Text>
+      <Image style={styles.image} source={require("greenery/assets/Logo_vert.png")} />
       <StatusBar style="auto" />
       <View style={styles.inputView}>
         <TextInput
@@ -60,8 +60,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   image :{
-    marginBottom: 40
- 
+    width: "40%",
+    height: "40%",
   },
   logotext: {
     marginBottom: 40,

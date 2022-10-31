@@ -14,6 +14,7 @@ import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as Location from "expo-location";
+import * as Font from 'expo-font';
 
 /**다른 페이지 import하기 */
 import BottombarPage from './components/BottombarPage';
@@ -31,6 +32,13 @@ import NewsPage from './components/NewsPage';
 
 /**이게 있어야 한 페이지 내에서 여러 페이지를 띄울 수 있음*/
 const Stack = createStackNavigator();
+
+const getFonts = async () => {
+  await Font.loadAsync({
+    'SCDream1': require('./android/app/src/main/assets/fonts/SCDream1.otf'),
+    'SCDream2': require('./android/app/src/main/assets/fonts/SCDream2.otf'),
+  });
+};
 
 
 export default function App() {
