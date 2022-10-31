@@ -9,8 +9,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 import {useState} from "react";
-import * as Font from 'expo-font';
 import { render } from "react-dom";
+import * as Font from 'expo-font';
 
 function Login({ navigation }) {
   const [email, setEmail] = useState("");

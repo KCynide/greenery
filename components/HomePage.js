@@ -13,7 +13,8 @@ import {
   StatusBar,
 } from "react-native";
 
-import Icon from 'react-native-vector-icons/FontAwesome';
+import * as Font from 'expo-font';
+import Icon from '@expo/vector-icons/FontAwesome';
 
 
 function HomePage({ navigation }) {
@@ -39,7 +40,9 @@ function HomePage({ navigation }) {
   return (
   <View style={styles.container}>
     <View style={styles.tobtabs}/**상단 바 설정 */>
-      <View style={styles.nullfreunde} />
+      <View style={styles.nullfreunde}>
+        <Image style={styles.iconimage} source={require("greenery/assets/Symbol.png")}/>
+      </View>
       <Text style={styles.nhousehold}>
         1인 가구
       </Text>
@@ -83,9 +86,10 @@ function HomePage({ navigation }) {
           </Text>
         </View>
         <View style={styles.fourthline}>
-          <Text style={styles.fourthline1}>This month you've planted</Text>
+          <Text style={styles.fourthline1}>You've planted</Text>
           <Text style={styles.fourthline2}>0.5</Text>
-          <Text style={styles.fourthline3}>tree</Text>
+          <Text style={styles.fourthline3}>trees</Text>
+          <Text style={styles.fourthline4}>This month</Text>
         </View>
         <View style={styles.fourthlineplus}>
           <Text style={styles.fourthlineplus1}>You've saved...</Text>
@@ -119,12 +123,17 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
-      padding: 10,
+      padding: '2%',
       borderBottomColor: "#fff",
       borderBottomWidth: 1,
     },
     nullfreunde: {
+      height: '100%',
       width: '40%',
+    },
+    iconimage: {
+      width: '60%',
+      height: '100%',
     },
     nhousehold: {
       fontSize: 20,
@@ -161,10 +170,11 @@ const styles = StyleSheet.create({
     },
     firstline1: {
       fontSize: 20,
-      width: "60%",
+      width: "50%",
     },
     firstline2: {
       fontSize: 30,
+      width: "40%",
     },
     secondline: {
       width: "90%",
@@ -175,9 +185,10 @@ const styles = StyleSheet.create({
     },
     secondline1: {
       fontSize: 20,
-      width: "60%",
+      width: "50%",
     },
     secondline2: {
+      width: "40%",
       fontSize: 30,
     },
     thirdline: {
@@ -189,10 +200,11 @@ const styles = StyleSheet.create({
     },
     thirdline1: {
       fontSize: 20,
-      width: "60%",
+      width: "50%",
     },
     thirdline2: {
       fontSize: 30,
+      width: "40%",
     },
     fourthline: {
       width: "90%",
@@ -213,6 +225,10 @@ const styles = StyleSheet.create({
       fontSize: 20,
       paddingLeft: 10,
     },
+    fourthline4: {
+      fontSize: 10,
+      paddingLeft: 10,
+    },
     fourthlineplus: {
       width: "90%",
       height: "10%",
@@ -222,7 +238,7 @@ const styles = StyleSheet.create({
       paddingLeft: 10,
     },
     fourthlineplus1: {
-      fontSize: 30,
+      fontSize: 20,
       paddingLeft: 10,
     },
     fourthlineplus2: {

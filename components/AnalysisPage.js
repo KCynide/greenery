@@ -9,7 +9,8 @@ import {
   View
 } from "react-native";
 import * as Location from "expo-location";
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from '@expo/vector-icons/FontAwesome';
+import Icon5 from '@expo/vector-icons/FontAwesome5';
 
 function AnalysisPage({ navigation }) {
   const [city, setCity] = useState(true);
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 10,
+    padding: '2%',
     borderBottomColor: "#fff",
     borderBottomWidth: 1,
   },
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   analysispagesetting: {
-    backgroundColor: "#92BD51",
+    backgroundColor: "#a0c16d",
     width: "90%",
     height: "90%",
     borderRadius: 25,

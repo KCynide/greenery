@@ -11,8 +11,8 @@ import {
 } from "react-native";
 import * as Location from "expo-location";
 /**웹 상에 있는 Icon을 불러와서 사용 */
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Icon5 from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@expo/vector-icons/FontAwesome';
+import Icon5 from '@expo/vector-icons/FontAwesome5';
 /**settingdata.js에 있는 정보를 사용한다는 것. 여기서는 그 안의 배열값에 맞추어  */
 import settingdata from './setting/settingdata';
 /**Transition을 이용해서 토글 메뉴를 눌렀을 때 자연스럽게 열림 */

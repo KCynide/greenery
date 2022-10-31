@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 10,
+    padding: '2%',
     borderBottomColor: "#fff",
     borderBottomWidth: 1,
   },
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   menupagesetting: {
-    backgroundColor: "#92BD51",
+    backgroundColor: "#a0c16d",
     width: "90%",
     height: "90%",
     borderRadius: 25,

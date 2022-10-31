@@ -11,7 +11,8 @@ import {
   FlatList,
 } from "react-native";
 import * as Location from "expo-location";
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from '@expo/vector-icons/FontAwesome';
+import Icon5 from '@expo/vector-icons/FontAwesome5';
 import axios from "axios";
 import Article from './article/ArticlePage';
 
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 10,
+    padding: '2%',
     borderBottomColor: "#fff",
     borderBottomWidth: 1,
   },

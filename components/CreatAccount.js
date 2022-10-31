@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from '@expo/vector-icons/FontAwesome';
+import Icon5 from '@expo/vector-icons/FontAwesome5';
 /**회원가입 */
 
 function CreatAccount() {

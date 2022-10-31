@@ -8,8 +8,13 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
+import * as Font from 'expo-font';
 import * as Location from "expo-location";
-import Icon from 'react-native-vector-icons/FontAwesome';
+/** import Icon from 'react-native-vector-icons/FontAwesome'; */
+import Icon from '@expo/vector-icons/FontAwesome';
+import Icon5 from '@expo/vector-icons/FontAwesome5';
+import Ionicons from '@expo/vector-icons/Ionicons';
+
 
 function ShopPage({ navigation }) {
   const [city, setCity] = useState("Loading...");
@@ -77,7 +82,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 10,
+    padding: '2%',
     borderBottomColor: "#fff",
     borderBottomWidth: 1,
   },
@@ -105,7 +110,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   shoppagesetting: {
-    backgroundColor: "#92BD51",
+    backgroundColor: "#a0c16d",
     width: "90%",
     height: "90%",
     borderRadius: 25,

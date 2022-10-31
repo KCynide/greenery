@@ -9,8 +9,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Icon5 from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@expo/vector-icons/FontAwesome';
+import Icon5 from '@expo/vector-icons/FontAwesome5';
+import * as Font from 'expo-font';
 
 const Tab = createBottomTabNavigator();
 
