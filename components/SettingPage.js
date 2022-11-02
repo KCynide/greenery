@@ -62,7 +62,7 @@ function SettingPage({navigation, item, onPress, style}) {
       </View>
       <View style={styles.profile}/**유저의 프로필. 구현되지 않음*/>
         <View style={styles.profilephoto}>
-          <Image style={styles.profilephotoimage} source={require("greenery/assets/logo-greenery.png")} />
+          <Image style={styles.profilephotoimage} source={require("greenery/assets/Icon_green.png")} />
         </View>
         <View style={styles.profiletext}>
           <View>
@@ -72,7 +72,7 @@ function SettingPage({navigation, item, onPress, style}) {
               </Text>
             </View>
             <View style={styles.profiletextnameline}/**프로필 암꺼나 넣음*/>
-              <Text style={styles.profiletextname}>Bae Junyeol</Text>
+              <Text style={styles.profiletextname}>Greenery CAU</Text>
               <View style={styles.nullfreund}></View>
               <TouchableOpacity
               onPress={() => navigation.navigate('ProfilePage')}
@@ -180,14 +180,17 @@ const styles = StyleSheet.create({
   profile: {
     flexDirection: 'row',
     alignItems: 'center',
+    height: '15%',
   },
   nullfreund: {
   },
+  profilephoto: {
+
+  },
   profilephotoimage: {
-    width: 100,
-    height: 100,
+    width: 150,
+    height: 150,
     marginLeft: 20,
-    marginTop: 20,
   },
   profiletextnameline: {
     flexDirection: 'row',
@@ -199,7 +202,7 @@ const styles = StyleSheet.create({
 
   },
   profiletext: {
-    marginLeft: 20,
+    marginLeft: 0,
   },
   profiletextname: {
     fontSize: 25,
